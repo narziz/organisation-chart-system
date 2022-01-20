@@ -110,7 +110,7 @@ eval("module.exports = __webpack_require__.p + \"icons/remove.png\";\n\n//# sour
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/";
+/******/ 		__webpack_require__.p = "";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
