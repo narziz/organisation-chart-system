@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul{
+  margin: 0; 
+  padding: 0;
+}
+
+li{
+  list-style: none;
+}
+
+body{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container{
+  min-height: 100vh;
+  background-color: $grayLight;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: auto;
+  position: absolute;
+  padding: 1rem;
+  width: -webkit-fill-available;
+}
+
+.categories{
+  display: flex;
+  padding-top: 1rem;
+  position: relative;
+
+  &::before{
+    content: '';
+    top: 0;
+    width: 50%;
+    height: 1rem;
+    background: transparent;
+    border-right: 1px solid $line;  
+    position: absolute;
+  }
+
+  &__item{
+    min-width: 18rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+
+    &::before,
+    &::after{
+      content: '';
+      top: 0;
+      width: 50%;
+      height: 15px;
+      background: transparent;
+      border-top: 1px solid $line;  
+      position: absolute;
+    }
+
+    &::before{
+      left: 0;
+    }
+    &::after{
+      right: 0;
+      border-left: 1px solid $line;
+    }
+
+    &:first-child::before{
+      border-top: 1px solid transparent;
+    }
+
+    &:last-child::after{
+      border-top: 1px solid transparent;
+      border-left: 1px solid transparent;
+    }
+
+    &:last-child::before{
+      border-right: 1px solid $line;
+    }
+
+    &:first-child:last-child{
+      border-top: none;
+    }
+
+  }
+}
+
+.category{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: $light;
+  border-radius: 3px;
+  width: fit-content;
+  margin-top: 15px;
+  height: fit-content;
+
+  &--init{
+    background: $light;
+    border: 2px dashed $line;
+    color: $textDark;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &--main{
+    padding: 0.5rem 1rem;
+    background: $categoryMain;
+    color: $textLight;
+  }
+
+  &--secondary{
+    padding: 0.5rem 1rem;
+    background: $categorySecondary; 
+    color: $textLight;
+  }
+
+  &--default{
+    padding: 0.5rem 1rem;
+    background: $categoryDefault; 
+    color: $textLight;
+  }
+
+  &__input{
+    padding: 0.7rem 1rem;
+    border: 1px solid $line;
+    border-radius: 3px;
+  }
+
+  &__btn-group{
+    position: absolute;
+    display: flex;
+    left: calc(100%);
+    z-index: 99;
+  }
+
+  &__btn{
+    border: none;
+    background: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 0.5rem;
+  }
+
+  &__img{
+    width: 1.3rem;
+    pointer-events: none;
+  }
+}
+
+.modal{
+  padding: 2rem;
+  position: absolute;
+  width: 30rem;
+  height: 15rem;
+  background: $light;
+  z-index: 100;
+  box-shadow: 0 1px 6px 1px rgba(190, 190, 190, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+
+  &--active{
+    display: flex;
+  }
+
+  &__buttons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text{
+    margin-bottom: 2rem;
+  }
+
+  &__button{
+    background: $light;
+    border: none;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 0 0.5rem;
+
+    &--cancel{
+      border: 1px solid $line;
+      border-radius: 3px;
+      color: $textGray;
+    }
+
+    &--delete{
+      border: 1px solid $remove;
+      background: $remove;
+      border-radius: 3px;
+      color: $textLight;
+    }
+  }
+}
