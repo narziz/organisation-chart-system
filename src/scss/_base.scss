@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -14,6 +16,7 @@ li{
 }
 
 body{
+  font-family: 'Montserrat', sans-serif;
   position: relative;
   display: flex;
   justify-content: center;
@@ -131,6 +134,10 @@ body{
     padding: 0.5rem 1rem;
     background: $categoryDefault; 
     color: $textLight;
+  }
+
+  &__title{
+    font-weight: 500;
   }
 
   &__input{

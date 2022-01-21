@@ -68,7 +68,15 @@ function createCategory(elem) {
   input.remove()
   buttons.remove()
 
-  category.classList.add('category--default')
+  let level = findLevel(category)
+  if (level === 1) {
+    category.classList.add('category--main')
+  } else if (level === 2){
+    category.classList.add('category--secondary')
+  } else {
+    category.classList.add('category--default')
+  }
+  
 
   createElement({ el: 'span', class: 'category__title', text: inputVal, parent: category })
   let btn_group = createElement({ el: 'div', class: 'category__btn-group', parent: category })
@@ -156,4 +164,17 @@ function openModal(event) {
 function closeModal(params) {
   let modal = document.body.lastElementChild
   modal.classList.remove('modal--active')
+}
+
+function findLevel(elem) {
+  let arr = [], i = 0
+  let categories = elem.closest('.categories')
+
+  while(categories){
+    let category = categories.previousElementSibling
+    arr.push(`category ${++i}`)
+    categories = category.closest('.categories')
+  }
+
+  return arr.length
 }
