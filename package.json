@@ -6,9 +6,17 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "dev": "npx webpack serve --config webpack.config.js --open"
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --config webpack.dev.js --open"
   },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ],
   "dependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
@@ -18,7 +26,8 @@
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
     "webpack": "^5.66.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^4.7.3"

@@ -8,30 +8,22 @@ module.exports = {
   entry: {
     index: './src/js/index.js'
   },
-  output: {
-    filename: './js/main.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-    publicPath: '',
-  },
+  // output: {
+  //   filename: './js/main.js',
+  //   path: path.resolve(__dirname, 'dist'),
+  //   clean: true,
+  // },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    new MiniCssExtractPlugin({
-      filename: "./css/main.css"
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: "./css/main.css"
+    // }),
     new HtmlWebpackPlugin({
       title: 'Chart System',
       filename: '/index.html',
       template: 'src/template.html'
     }),
   ],
-  devServer: {
-    // static: {
-    //   directory: path.join(__dirname, 'dist'),
-    // },
-    static: './dist',
-    port: 4000,
-  },
   module: {
     rules: [
       {
